@@ -1,0 +1,3 @@
+rails generate scaffold workout name:string user:belongs_to
+rails generate scaffold wod user:belongs_to 
+rails generate scaffold post score:integer photo_url:string text:string user:belongs_to workout:belongs_to

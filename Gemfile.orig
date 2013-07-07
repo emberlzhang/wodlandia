@@ -31,11 +31,13 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+<<<<<<< HEAD
 #for heroku
 gem 'rails_12factor', group: :production
 ruby "2.0.0"
-
+=======
 gem 'twitter-bootstrap-rails'
+>>>>>>> 1bb03f15226712e7b6d52a75dad93df123378f5e
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
