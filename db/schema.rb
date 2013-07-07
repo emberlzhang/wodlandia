@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20130707001930) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "posts", force: true do |t|
     t.integer  "score"
     t.string   "photo_url"
@@ -23,8 +26,8 @@ ActiveRecord::Schema.define(version: 20130707001930) do
     t.datetime "updated_at"
   end
 
-  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
-  add_index "posts", ["workout_id"], name: "index_posts_on_workout_id"
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
+  add_index "posts", ["workout_id"], name: "index_posts_on_workout_id", using: :btree
 
   create_table "users", force: true do |t|
     t.datetime "created_at",                     null: false
@@ -35,8 +38,8 @@ ActiveRecord::Schema.define(version: 20130707001930) do
     t.string   "remember_token",     limit: 128, null: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email"
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
+  add_index "users", ["email"], name: "index_users_on_email", using: :btree
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
   create_table "wods", force: true do |t|
     t.integer  "user_id"
@@ -44,7 +47,7 @@ ActiveRecord::Schema.define(version: 20130707001930) do
     t.datetime "updated_at"
   end
 
-  add_index "wods", ["user_id"], name: "index_wods_on_user_id"
+  add_index "wods", ["user_id"], name: "index_wods_on_user_id", using: :btree
 
   create_table "workouts", force: true do |t|
     t.string   "name"
@@ -53,6 +56,6 @@ ActiveRecord::Schema.define(version: 20130707001930) do
     t.datetime "updated_at"
   end
 
-  add_index "workouts", ["user_id"], name: "index_workouts_on_user_id"
+  add_index "workouts", ["user_id"], name: "index_workouts_on_user_id", using: :btree
 
 end
