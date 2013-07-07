@@ -34,6 +34,12 @@ end
 gem 'twitter-bootstrap-rails'
 gem 'oauth2'
 
+group :development do
+  gem 'pry'
+  gem 'shotgun'
+  gem 'thin'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
