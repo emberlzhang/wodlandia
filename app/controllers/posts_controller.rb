@@ -14,6 +14,9 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
+    if params.has_key? :wod_id
+       @wod = Wod.find( params[:wod_id] )
+    end
     @post = Post.new
   end
 

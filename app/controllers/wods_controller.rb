@@ -10,6 +10,7 @@ class WodsController < ApplicationController
   # GET /wods/1
   # GET /wods/1.json
   def show
+    @workout = Workout.find( Wod.find(params[:id]).workout_id )
   end
 
   # GET /wods/new
