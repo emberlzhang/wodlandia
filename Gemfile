@@ -30,9 +30,17 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-#for heroku
-gem 'rails_12factor', group: :production
-ruby "2.0.0"
+group :development do
+  gem 'therubyracer'
+end
 
+gem 'less-rails'
 gem 'twitter-bootstrap-rails'
-gem 'therubyracer'
+
+group :production do
+  gem 'rails_12factor'
+  gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
+  gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
+end
+
+ruby "2.0.0"
