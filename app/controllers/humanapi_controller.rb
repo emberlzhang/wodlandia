@@ -3,6 +3,11 @@ class HumanapiController < ApplicationController
   require 'humanapi'
 
   def index
+    if not signed_in?
+      redirect_to sign_in_path
+      return
+    end
+
     if params[:code]
       callback
     end
@@ -33,5 +38,6 @@ class HumanapiController < ApplicationController
   def callback
     new_token = client.auth_code.get_token(params[:code], :redirect_uri => redirect_uri)
     session[:access_token] = new_token.token
+    current_user.update_attribute(:humanapi_token, new_token.token)
   end
 end
