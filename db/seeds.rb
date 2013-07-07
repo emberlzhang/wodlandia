@@ -16,6 +16,7 @@ Workout.create( :name=>"fran", :user_id=>1, :description => "> 21 Barbell Thrust
 Workout.create( :name=>"helen", :user_id=>1, :description=>"400m Sprint, 21 Kettlebell Swings (24kg), 12 Pull-ups")
 Workout.create( :name=>"helen", :user_id=>1, :description=>"Pull-Up Progression-Day 13: 7-6-5-4-3, Snatch Balance 5-5-3-3-3-1-1-1, Split Handstand Hold-High Box Drill: accumulate 3 mins total, 300 DUs for time, EMOTM complete 3 burpees,
 Before class is over every athlete needs to Sled Drag 600 Meters at any point during the 1.5 hours" )
+Wod.delete_all
 Wod.create( :user_id=>1, :workout_id=>1 ) 
 Wod.create( :user_id=>2, :workout_id=>1 ) 
 Wod.create( :user_id=>1, :workout_id=>2 ) 
