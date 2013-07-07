@@ -1,7 +1,8 @@
 Wodlandia::Application.routes.draw do
-  resources :users do
-    resources :posts
-  end
+  get 'photos/:id', to: 'photos#show'
+  post 'users/', to: 'clearance/users#create' 
+  
+  post '/users/:user_id/password', to: 'clearance/passwords#create'
 
   resources :posts
 
@@ -17,6 +18,10 @@ Wodlandia::Application.routes.draw do
 
   get 'humanapi/callback', to: 'humanapi#index'
   resources :humanapi
+
+  resources :users do
+        resources :posts
+  end
 
   root to: 'application#index'
 end
