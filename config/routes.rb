@@ -15,5 +15,8 @@ Wodlandia::Application.routes.draw do
     resources :wods
   end
 
+  get 'humanapi/callback', to: 'humanapi#index'
+  resources :humanapi
+
   root to: 'application#index'
 end
