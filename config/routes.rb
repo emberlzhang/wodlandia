@@ -1,4 +1,6 @@
 Wodlandia::Application.routes.draw do
+  root 'application#index'
+
   resources :posts
 
   resources :wods
@@ -7,12 +9,6 @@ Wodlandia::Application.routes.draw do
 
   get 'humanapi/callback', to: 'humanapi#index'
   resources :humanapi
-
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
