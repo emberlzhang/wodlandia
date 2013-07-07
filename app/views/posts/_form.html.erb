@@ -19,7 +19,8 @@
   </div>
   <%= hidden_field( :user_id, current_user.id )%>
   <% if defined? @wod %>
-  <%= hidden_field( :wod_id, @wod.id )%>
+  <%= f.hidden_field :wod_id, :value => @wod.id %>
+  <p>wod id: <%= @wod.id %></p> 
   <% end %>
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>

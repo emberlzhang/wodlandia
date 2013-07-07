@@ -6,6 +6,11 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
 binding.pry
+
+    @posts.each_with_index do |post,i|
+      @posts[i].user = User.find( post.user_id )
+      #@posts[i].workout = Workout.find( Wod.find( post.wod_id ).workout_id )
+    end   
   end
 
   # GET /posts/1
@@ -29,6 +34,15 @@ binding.pry
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+
+    @post.user_id = current_user.id
+
+    if params[:post].has_key? :wod_id
+       @wod = Wod.find( params[:post][:wod_id] )
+       #if wod make post, if not...
+
+       @post.wod_id = @wod.id
+    end
 
     respond_to do |format|
       if @post.save

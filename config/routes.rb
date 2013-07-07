@@ -4,24 +4,25 @@ Wodlandia::Application.routes.draw do
   
   post '/users/:user_id/password', to: 'clearance/passwords#create'
 
-  resources :posts
-
-  resources :wods
-
-  resources :wods do
+  resources :users do
     resources :posts
-  end  
+  end
 
   resources :workouts do
     resources :wods
   end
 
+  resources :wods do
+    resources :posts
+  end  
+
+  resources :wods
+
+  resources :posts
+
   get 'humanapi/callback', to: 'humanapi#index'
   resources :humanapi
 
-  resources :users do
-        resources :posts
-  end
 
   root to: 'application#index'
 end

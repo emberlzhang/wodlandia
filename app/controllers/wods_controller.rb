@@ -10,7 +10,8 @@ class WodsController < ApplicationController
   # GET /wods/1
   # GET /wods/1.json
   def show
-    @workout = Workout.find( Wod.find(params[:id]).workout_id )
+    @wod = Wod.find( params[:id] )
+    @workout = Workout.find( @wod.workout_id )
   end
 
   # GET /wods/new
@@ -27,6 +28,7 @@ class WodsController < ApplicationController
   # POST /wods.json
   def create
     @wod = Wod.new(wod_params)
+    @wod.user_id = current_user.id
 
     respond_to do |format|
       if @wod.save
@@ -71,6 +73,6 @@ class WodsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def wod_params
-      params.require(:wod).permit(:user_id, :workout_id)
+      params.require(:wod).permit( :workout_id )
     end
 end

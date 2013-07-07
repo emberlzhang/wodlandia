@@ -1,9 +1,7 @@
 <p><%= @workout.name %></p>
 <p><%= @workout.description %></p>
 <%= form_for @wod, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= hidden_field( :user_id, current_user.id )%>
-  <%= hidden_field( :workout_id, @workout.id )%>
-
+  <%= f.hidden_field :workout_id, :value => @workout.id %>
   <div class="form-actions">
     <%= f.submit "create wod for "+Date.today.strftime('%A, %d %B %Y'), :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

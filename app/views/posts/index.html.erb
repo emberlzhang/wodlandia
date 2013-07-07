@@ -5,20 +5,10 @@
         <li>
           <div class="row"
             <span><%= post.created_at.strftime('%A, %d %B %Y') %></span>
-
-
-        <td><%= post.score %></td>
-        <td><%= post.photo_url %></td>
-        <td><%= post.text %></td>
-        <td><%= post.user_id %></td>
-        <td><%= post.wod_id %></td>
-        <td><%=l post.created_at %></td>
-
-
-
-
-
-
+            <span>score: <%= post.score %></span>
+            <span><%= image_tag post.photo.url %></span>
+            <span><%= post.text %></span>
+            <span><%= post.user.email %></span>
 
           <% if signed_in? %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
@@ -28,10 +18,6 @@
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-mini btn-danger' %>
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_post_path,
-            :class => 'btn btn-primary' %>
-
           <% end %>
 
           </div>
@@ -39,4 +25,9 @@
       <% end %>
     </ul>
   </div>
+</div>
+<div class="row">
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_post_path,
+            :class => 'btn btn-primary' %>
 </div>
