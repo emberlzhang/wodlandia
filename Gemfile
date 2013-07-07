@@ -33,6 +33,7 @@ end
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 gem 'oauth2'
+gem 'therubyracer'
 
 group :production do
   gem 'rails_12factor'
@@ -41,7 +42,6 @@ group :production do
 end
 
 group :development do
-  gem 'therubyracer'
   gem 'pry'
   gem 'shotgun'
   gem 'thin'
