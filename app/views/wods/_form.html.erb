@@ -1,13 +1,11 @@
+<p><%= @workout.name %></p>
+<p><%= @workout.description %></p>
 <%= form_for @wod, :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
-    <%= f.label :user_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :user_id, :class => 'text_field' %>
-    </div>
-  </div>
+  <%= hidden_field( :user_id, current_user.id )%>
+  <%= hidden_field( :workout_id, @workout.id )%>
 
   <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= f.submit "create wod for "+Date.today.strftime('%A, %d %B %Y'), :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 wods_path, :class => 'btn' %>
   </div>

@@ -14,6 +14,8 @@
   <dd><%= @post.user_id %></dd>
   <dt><strong><%= model_class.human_attribute_name(:workout_id) %>:</strong></dt>
   <dd><%= @post.workout_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:photo) %>:</strong></dt>
+  <dd><%= image_tag @post.photo.url %></dd>
 </dl>
 
 <div class="form-actions">

@@ -15,6 +15,7 @@ class WodsController < ApplicationController
   # GET /wods/new
   def new
     @wod = Wod.new
+    @workout = Workout.find( params[:workout_id] )
   end
 
   # GET /wods/1/edit
@@ -69,6 +70,6 @@ class WodsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def wod_params
-      params.require(:wod).permit(:user_id)
+      params.require(:wod).permit(:user_id, :workout_id)
     end
 end

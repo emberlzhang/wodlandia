@@ -34,6 +34,10 @@ gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 gem 'oauth2'
 
+# s3 uploads
+gem 'paperclip'
+gem 'aws-sdk'
+
 group :production do
   gem 'rails_12factor'
   gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
@@ -45,6 +49,15 @@ group :development do
   gem 'pry'
   gem 'shotgun'
   gem 'thin'
+
+  gem 'debugger-ruby_core_source', '~> 1.2.2'
+  gem "debugger", "~> 1.6.0"
+  gem 'pry-doc'
+  gem 'pry-debugger'
+  gem 'pry-stack_explorer'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
 end
 
 # Use ActiveModel has_secure_password

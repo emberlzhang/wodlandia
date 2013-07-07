@@ -1,23 +1,23 @@
 development:
   adapter: postgresql
-  encoding: unicode
+  encoding: utf8
   database: wodlandia_development
   pool: 5
-  username: janet
+  username: vagrant
   password:
 
 test:
   adapter: postgresql
-  encoding: unicode
+  encoding: utf8
   database: wodlandia_test
   pool: 5
-  username: janet
+  username: vagrant
   password:
 
 production:
   adapter: postgresql
-  encoding: unicode
+  encoding: utf8
   database: wodlandia_production
   pool: 5
-  username: janet
+  username: vagrant
   password:
