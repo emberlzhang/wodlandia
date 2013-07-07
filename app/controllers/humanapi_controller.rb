@@ -12,7 +12,7 @@ class HumanapiController < ApplicationController
       callback
     end
 
-    if not session[:access_token]
+    if not current_user.humanapi_token
       authorize
     else
       response = access_token.get('profile')
@@ -25,7 +25,7 @@ class HumanapiController < ApplicationController
   end
 
   def access_token
-    OAuth2::AccessToken.new(client, session[:access_token])
+    OAuth2::AccessToken.new(client, current_user.humanapi_token)
   end
 
   def redirect_uri
@@ -37,7 +37,6 @@ class HumanapiController < ApplicationController
 
   def callback
     new_token = client.auth_code.get_token(params[:code], :redirect_uri => redirect_uri)
-    session[:access_token] = new_token.token
-    current_user.update_attribute(:humanapi_token, new_token.token)
+    current_user.update_attributes(humanapi_token: new_token.token)
   end
 end
