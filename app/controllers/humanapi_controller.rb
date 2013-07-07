@@ -15,8 +15,8 @@ class HumanapiController < ApplicationController
     if not current_user.humanapi_token
       authorize
     else
-      response = access_token.get('profile')
-      render json: response.body
+      update_stats
+      render json: access_token.get('').body
     end
   end
 
@@ -33,6 +33,14 @@ class HumanapiController < ApplicationController
     uri.path = '/humanapi/callback'
     uri.query = nil
     uri.to_s
+  end
+
+  def update_stats
+    r = JSON.parse(access_token.get('').body)
+    current_user.update_attribute(:weight, r['weight']['value']) if r['weight']
+    current_user.update_attribute(:bmi, r['bmi']['value']) if r['bmi']
+    current_user.update_attribute(:sleep, r['sleepSummary']['timeAsleep']) if r['sleepSummary']
+    current_user.update_attribute(:body_fat, r['body_fat']['value']) if r['body_fat']
   end
 
   def callback

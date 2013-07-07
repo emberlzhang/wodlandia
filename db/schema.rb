@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130707053746) do
+ActiveRecord::Schema.define(version: 20130707180823) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "posts", force: true do |t|
     t.integer  "score"
@@ -38,6 +41,10 @@ ActiveRecord::Schema.define(version: 20130707053746) do
     t.string   "confirmation_token", limit: 128
     t.string   "remember_token",     limit: 128, null: false
     t.text     "humanapi_token"
+    t.integer  "weight"
+    t.integer  "bmi"
+    t.integer  "body_fat"
+    t.integer  "sleep"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
