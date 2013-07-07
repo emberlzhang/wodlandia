@@ -30,18 +30,15 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'less-rails'
+<<<<<<< HEAD
+group :development do
+  gem 'therubyracer'
+end
+=======
 gem 'twitter-bootstrap-rails'
 gem 'oauth2'
 
-group :production do
-  gem 'rails_12factor'
-  gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
-  gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
-end
-
 group :development do
-  gem 'therubyracer'
   gem 'pry'
   gem 'shotgun'
   gem 'thin'
@@ -49,5 +46,15 @@ end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
+>>>>>>> 5af86685269e85b0432dd1a0edb4c69453cd3486
+
+gem 'less-rails'
+gem 'twitter-bootstrap-rails'
+
+group :production do
+  gem 'rails_12factor'
+  gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
+  gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
+end
 
 ruby "2.0.0"
