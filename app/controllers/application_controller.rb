@@ -5,10 +5,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def index
-    #if user logged in
-      #redirect to profile page
-    #else #user not logged in
-      #nothing, just show application index page
-    #end
+    unless signed_in?
+      redirect_to sign_in_path
+    end
   end
 end
