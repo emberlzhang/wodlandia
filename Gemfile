@@ -33,6 +33,7 @@ end
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 gem 'oauth2'
+gem 'therubyracer'
 
 # s3 uploads
 gem 'paperclip'
@@ -45,7 +46,6 @@ group :production do
 end
 
 group :development do
-  gem 'therubyracer'
   gem 'pry'
   gem 'shotgun'
   gem 'thin'
