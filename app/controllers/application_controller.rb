@@ -5,5 +5,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def index
+    #if user logged in
+      #redirect to profile page
+    #else #user not logged in
+      #nothing, just show application index page
+    #end
   end
 end
