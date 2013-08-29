@@ -24,8 +24,6 @@ module Wodlandia
       :storage => :s3,
       :s3_credentials => {
         :bucket => 'wodlandia', 
-        :access_key_id => "AKIAIW7ND3QEJPIQIEXQ",
-        :secret_access_key => "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"
       }
     }
   end
